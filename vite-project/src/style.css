@@ -1,0 +1,407 @@
+/* --- 基础与布局适配 --- */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: "Microsoft YaHei", "PingFang SC", sans-serif; 
+}
+
+/* 确保 Vite 的 root 容器占满全屏，支持 flex 布局 */
+#root {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    color: #333;
+    width: 100%;
+}
+
+:has(.login-screen-wrapper) {
+    display: block !important;
+}
+
+.login-screen-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f2f5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.login-form-card {
+    width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.login-footer-link {
+    margin-top: 12px;
+    text-align: center;
+    color: #666;
+}
+
+.page-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 240px;
+}
+
+.page-search {
+    max-width: 320px;
+}
+
+.inline-spinner {
+    margin-bottom: 16px;
+}
+
+/* --- 带侧栏页面外壳（Home / Detail / Cart / Orders） --- */
+.page-with-sidebar {
+    display: flex;
+    width: 100%;
+}
+
+.detail-loading {
+    padding: 20px;
+}
+
+.order-footer-total {
+    text-align: right;
+    padding: 8px 16px 12px;
+    font-weight: 600;
+    color: #c0392b;
+}
+
+/* Ant Design Sider：边框与品牌区（对应 Sidebar.jsx） */
+.app-sidebar.ant-layout-sider {
+    border-right: 1px solid #f0f0f0;
+}
+
+.app-sidebar-brand {
+    height: 32px;
+    margin: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1890ff;
+}
+
+/* 购物车页脚 */
+.cart-total-em {
+    color: #4f46e5;
+    font-size: 1.2em;
+}
+
+.cart-footer .btn-checkout {
+    margin-left: 15px;
+}
+
+/* 订单卡片正文区 */
+.order-body-main {
+    flex-grow: 1;
+}
+
+.order-qty-muted {
+    color: #666;
+}
+
+.book-meta {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.filter-bar {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+
+.filter-bar .ant-input-search {
+    max-width: 360px;
+}
+
+.two-column-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 16px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stats-summary .ant-statistic {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.admin-section {
+    margin-top: 24px;
+}
+
+.admin-section h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+/* 个人信息（Ant Design Layout） */
+.profile-page.ant-layout {
+    min-height: 100vh;
+}
+
+.profile-content.ant-layout-content {
+    padding: 24px;
+}
+
+.profile-card-intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-user-title {
+    margin-top: 10px;
+}
+
+.profile-save-btn {
+    margin-top: 20px;
+}
+
+/* --- 侧边导航栏 (Sidebar) --- */
+.sidebar { 
+    width: 240px; 
+    background-color: #fff; 
+    border-right: 1px solid #e0e0e0; 
+    padding: 20px; 
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.logo { 
+    font-size: 22px; 
+    font-weight: bold; 
+    margin-bottom: 30px; 
+    display: flex; 
+    align-items: center; 
+}
+
+.nav-menu { list-style: none; }
+.nav-menu li { margin-bottom: 15px; }
+
+/* 适配 NavLink 的样式 */
+.nav-menu a { 
+    text-decoration: none; 
+    color: #666; 
+    font-size: 16px; 
+    display: block; 
+    padding: 10px; 
+    border-radius: 8px; 
+    transition: 0.3s; 
+}
+
+.nav-menu a:hover, .nav-menu a.active { 
+    background-color: #eef2ff; 
+    color: #4f46e5; 
+    font-weight: bold;
+}
+
+/* --- 主内容区域 --- */
+.main-content { 
+    flex-grow: 1; 
+    padding: 30px; 
+    max-width: 1280px; /* 限制最大宽度，防止大屏太散 */
+    margin: 0 auto;
+    width: 100%;
+}
+
+header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+}
+
+/* --- 登录页专用 --- */
+/* 因为登录页没侧边栏，我们让它覆盖全屏 */
+.login-container { 
+    width: 100vw; 
+    height: 100vh;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background: #f0f2f5; 
+}
+
+.login-card { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    width: 400px; 
+}
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+.form-group input { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 6px; 
+    outline: none;
+}
+.form-group input:focus { border-color: #4f46e5; }
+
+/* --- 书籍列表 (Home) --- */
+.book-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 25px; 
+}
+
+.book-card { 
+    background: white; 
+    padding: 15px; 
+    border-radius: 10px; 
+    text-align: center; 
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.book-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05); 
+}
+
+.book-card img { 
+    width: 100%; 
+    aspect-ratio: 3/4; /* 统一图片比例 */
+    object-fit: cover;
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+}
+
+/* --- 按钮通用 --- */
+.btn { 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: 0.2s;
+}
+
+.btn-primary { background-color: #4f46e5; color: white; }
+.btn-primary:hover { background-color: #4338ca; }
+.btn-danger { background-color: #fee2e2; color: #ef4444; }
+.btn-danger:hover { background-color: #fecaca; }
+
+/* 详情页：与 .btn 同用，需写在 .btn 之后以覆盖 border: none */
+.btn.btn-add-to-cart {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+}
+.btn.btn-add-to-cart:hover {
+    background-color: #dc2626;
+}
+
+.btn.btn-buy-now {
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+}
+.btn.btn-buy-now:hover {
+    border-color: #bbb;
+    background: #fafafa;
+}
+
+/* --- 详情页 (Detail) --- */
+.detail-container { 
+    display: flex; 
+    gap: 40px; 
+    background: white; 
+    padding: 40px; 
+    border-radius: 12px; 
+}
+
+.detail-image { flex: 0 0 300px; }
+.detail-image img { 
+    width: 100%; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+.detail-info { flex-grow: 1; }
+.detail-info h2 { font-size: 28px; margin-bottom: 15px; }
+.info-item { margin-bottom: 10px; color: #555; }
+.price-tag { font-size: 24px; color: #ef4444; font-weight: bold; margin: 20px 0; }
+.description { 
+    margin-top: 30px; 
+    line-height: 1.8; 
+    color: #333; 
+    border-top: 1px solid #eee; 
+    padding-top: 20px; 
+}
+.action-buttons { margin-top: 30px; display: flex; gap: 15px; }
+
+/* --- 购物车 (Cart) --- */
+.cart-list { margin-top: 20px; }
+.cart-item { 
+    display: flex; 
+    align-items: center; 
+    background: white; 
+    padding: 20px; 
+    margin-bottom: 10px; 
+    border-radius: 8px; 
+    border: 1px solid #eee;
+}
+.cart-item img { width: 80px; margin: 0 20px; }
+.item-info { flex-grow: 1; }
+.price { color: #ef4444; font-weight: bold; }
+
+.cart-footer { 
+    position: sticky; 
+    bottom: 20px; 
+    background: white; 
+    padding: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border: 2px solid #4f46e5; 
+    border-radius: 8px;
+    margin-top: 20px; 
+}
+
+/* --- 订单页 (Orders) --- */
+.order-card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+.order-header { 
+    display: flex; 
+    justify-content: space-between; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px; 
+    margin-bottom: 15px; 
+}
+.order-status { color: #f59e0b; font-weight: bold; }
+.order-body { display: flex; align-items: center; }
+.order-body img { width: 60px; margin-right: 15px; }
+.order-footer { 
+    text-align: right; 
+    margin-top: 15px; 
+    border-top: 1px solid #eee; 
+    padding-top: 15px; 
+}
